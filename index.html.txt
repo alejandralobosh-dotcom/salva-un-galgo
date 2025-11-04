@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Salva un Galgo — Adopta, Apadrina, Dona</title>
+  <meta name="description" content="Fundación Salva un Galgo: rescatamos, rehabilitamos y damos en adopción responsable a galgos. Súmate: adopta, apadrina, dona o sé voluntari@.">
+  <meta property="og:title" content="Salva un Galgo — Adopta, Apadrina, Dona">
+  <meta property="og:description" content="Rescatamos y rehabilitamos galgos. Súmate hoy.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#e11d2e">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --red-50:#fff1f2; --red-100:#ffe4e6; --red-200:#fecdd3; --red-300:#fda4af; --red-400:#fb7185; --red-500:#ef4444; --red-600:#dc2626; --red-700:#b91c1c; --red-800:#991b1b; --red-900:#7f1d1d;
+      --black:#0a0a0a; --ink:#131318; --ink-2:#23262f; --muted:#9ca3af; --white:#fff;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.25);
+      --container:1140px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,#0a0a0a,#111 30%,#151515);color:var(--white);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.7);backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid rgba(239,68,68,.25)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;align-items:center;gap:.8rem}
+    .brand-logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:radial-gradient(120% 120% at 20% 20%, var(--red-500), var(--red-800));box-shadow:0 8px 20px rgba(239,68,68,.3)}
+    .brand b{letter-spacing:.2px}
+    nav a{padding:.5rem .8rem;border-radius:999px;color:#e5e7eb}
+    nav a:hover{background:rgba(239,68,68,.15);color:#fff}
+    .btn{display:inline-flex;gap:.6rem;align-items:center;font-weight:700;border-radius:999px;border:1px solid rgba(239,68,68,.35);padding:.9rem 1.2rem;background:linear-gradient(180deg,var(--red-600),var(--red-700));box-shadow:0 8px 24px rgba(239,68,68,.25)}
+    .btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .btn-outline{background:transparent;border-color:rgba(239,68,68,.45)}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden}
+    .hero .container{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:64px 24px}
+    .badge{display:inline-flex;gap:.5rem;align-items:center;padding:.35rem .7rem;border-radius:999px;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35);color:#fecaca;font-size:.85rem}
+    .hero h1{font-size:clamp(2rem,4.8vw,3.2rem);line-height:1.05;margin:.6rem 0 .6rem}
+    .hero p{color:#e5e7eb}
+    .blob{position:absolute;inset:-100px -120px auto auto;width:540px;height:540px;filter:blur(70px);opacity:.28;background:conic-gradient(from 90deg,var(--red-400),var(--red-700),#000,var(--red-500))}
+    .hero-card{background:linear-gradient(180deg,#131318,#0b0b0b);border:1px solid rgba(239,68,68,.25);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .stat{background:linear-gradient(180deg,#171717,#0f0f0f);border:1px solid rgba(239,68,68,.18);border-radius:12px;padding:14px;text-align:center}
+    .stat b{font-size:1.6rem;color:#fecaca}
+
+    /* SECTIONS */
+    section{padding:72px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:20px}
+    .section-title{font-size:clamp(1.6rem,3.4vw,2.2rem)}
+    .muted{color:#d1d5db}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{background:linear-gradient(180deg,#121212,#0b0b0b);border:1px solid rgba(239,68,68,.18);border-radius:var(--radius);padding:20px}
+
+    /* DOGS */
+    .dog{display:flex;flex-direction:column;gap:.6rem}
+    .dog .photo{height:220px;border-radius:14px;background:#111 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="100%" height="100%" fill="%23111111"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23ef4444" font-family="Inter" font-size="20">Foto de galgo</text></svg>') center/cover no-repeat}
+    .pill{display:inline-block;border-radius:999px;padding:.35rem .7rem;border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.08);color:#fecaca;font-size:.8rem}
+
+    /* CTA */
+    .cta{background:linear-gradient(180deg,#1a1a1a,#0b0b0b);border-top:1px solid rgba(239,68,68,.25)}
+    .cta .callout{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;background:linear-gradient(180deg,#171717,#0f0f0f);border:1px solid rgba(239,68,68,.3);border-radius:var(--radius);padding:22px}
+
+    footer{padding:36px 0;border-top:1px solid rgba(239,68,68,.2);color:#d1d5db}
+
+    /* FORM */
+    .input{display:flex;flex-direction:column;gap:6px}
+    input, select, textarea{border:1px solid rgba(239,68,68,.3);background:#0f0f0f;color:#fff;border-radius:12px;padding:12px 14px}
+    input:focus, select:focus, textarea:focus{outline:none;border-color:var(--red-500);box-shadow:0 0 0 4px rgba(239,68,68,.18)}
+
+    /* Responsive */
+    @media (max-width: 980px){.hero .container{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}.cta .callout{grid-template-columns:1fr}}
+    @media (max-width: 640px){section{padding:56px 0}.stats{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <div class="brand-logo" aria-hidden="true">🐾</div>
+        <div><b>Salva un Galgo</b><br><span class="muted" style="font-size:.85rem">Rescate · Rehabilitación · Adopción</span></div>
+      </a>
+      <nav aria-label="Principal">
+        <a href="#adopta">Adopta</a>
+        <a href="#apadrina">Apadrina</a>
+        <a href="#donar">Donar</a>
+        <a href="#voluntariado">Voluntariado</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="blob" aria-hidden="true"></div>
+    <div class="container">
+      <div>
+        <span class="badge">Cada donación cambia una vida ❤️‍🩹</span>
+        <h1>Salva un galgo hoy: <span style="color:#fecaca">adopta, apadrina o dona</span></h1>
+        <p>Somos una comunidad que rescata galgos en situación de abandono, los rehabilita integralmente y les encuentra un hogar responsable. Tu ayuda permite financiar cirugías, alimentación, traslados y hogares temporales.</p>
+        <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.6rem">
+          <a class="btn" href="#donar">Donar ahora</a>
+          <a class="btn btn-outline" href="#adopta">Ver galgos en adopción</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>+1.200</b><br><span class="muted">Rescates gestionados</span></div>
+          <div class="stat"><b>92%</b><br><span class="muted">Adopciones efectivas</span></div>
+          <div class="stat"><b>48h</b><br><span class="muted">Tiempo medio de respuesta</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <svg width="100%" height="100%" viewBox="0 0 560 360" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0%" stop-color="#ef4444"/>
+              <stop offset="100%" stop-color="#7f1d1d"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="560" height="360" fill="#0e0e10"/>
+          <circle cx="470" cy="60" r="46" fill="#ef4444" opacity=".25"/>
+          <rect x="24" y="24" rx="16" width="352" height="180" fill="url(#g)" opacity=".85"/>
+          <rect x="24" y="216" rx="10" width="280" height="16" fill="#111"/>
+          <rect x="24" y="242" rx="10" width="310" height="16" fill="#111"/>
+          <rect x="24" y="268" rx="10" width="190" height="16" fill="#111"/>
+        </svg>
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+          <span class="pill">Adopción responsable</span>
+          <span class="pill">Hogares temporales</span>
+          <span class="pill">Campañas veterinarias</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADOPTA -->
+  <section id="adopta">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Galgos en adopción</h2>
+        <span class="muted">Conoce a quienes buscan hogar</span>
+      </div>
+      <div class="grid-3">
+        <article class="card dog">
+          <div class="photo" role="img" aria-label="Foto de galgo"></div>
+          <h3>Canela</h3>
+          <p class="muted">2 años, dócil, convive con niños y otros perros. Esterilizada y con chip.</p>
+          <div><span class="pill">Sociable</span> <span class="pill">Mediana</span></div>
+        </article>
+        <article class="card dog">
+          <div class="photo" role="img" aria-label="Foto de galgo"></div>
+          <h3>Rayo</h3>
+          <p class="muted">1 año, activo, ideal familia con patio o salidas frecuentes. Vacunas al día.</p>
+          <div><span class="pill">Juguetón</span> <span class="pill">Joven</span></div>
+        </article>
+        <article class="card dog">
+          <div class="photo" role="img" aria-label="Foto de galgo"></div>
+          <h3>Luna</h3>
+          <p class="muted">3 años, tranquila, perfecta para depto. Adiestramiento básico.</p>
+          <div><span class="pill">Tranquila</span> <span class="pill">Adulta</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- APADRINA & DONA -->
+  <section id="apadrina">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Apadrina o dona</h2>
+        <span class="muted">Tu aporte directo en salud, alimento y traslados</span>
+      </div>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Apadrina un galgo</h3>
+          <p class="muted">Elige un galgo y aporta mensualmente para su recuperación. Recibirás reportes y fotos de su progreso.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="#donar">Apadrinar desde $5.000</a><a class="btn btn-outline" href="#contacto">Quiero más info</a></div>
+        </article>
+        <article class="card" id="donar">
+          <h3>Dona ahora</h3>
+          <p class="muted">Aporta por transferencia, tarjeta o Webpay.</p>
+          <div class="grid-2">
+            <div class="input"><label>Monto (CLP)</label><input type="number" min="1000" value="5000"></div>
+            <div class="input"><label>Frecuencia</label><select><option>Única</option><option>Mensual</option></select></div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+            <a class="btn" href="#" aria-label="Pagar con tarjeta">Pagar con tarjeta</a>
+            <a class="btn btn-outline" href="https://wa.me/569XXXXXXXX?text=Quiero%20donar%20a%20Salva%20un%20Galgo" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+          <p class="muted" style="font-size:.85rem;margin-top:10px">Datos de transferencia: Banco XXXX · Cta. Corriente 00-000-000 · RUT 00.000.000-0 · Fundación Salva un Galgo · contacto@salvaungalgo.cl</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOLUNTARIADO -->
+  <section id="voluntariado">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Voluntariado</h2>
+        <span class="muted">Transportes, hogares temporales y difusión</span>
+      </div>
+      <form class="card" id="formVol">
+        <div class="grid-2">
+          <div class="input"><label>Nombre</label><input required placeholder="Tu nombre"/></div>
+          <div class="input"><label>Email</label><input type="email" required placeholder="tu@correo.cl"/></div>
+          <div class="input"><label>Teléfono</label><input placeholder="+56 9 ..."/></div>
+          <div class="input"><label>Ciudad</label><input placeholder="Santiago, Valparaíso..."/></div>
+          <div class="input" style="grid-column:1/-1"><label>¿Cómo te gustaría ayudar?</label><textarea rows="4" placeholder="Traslados, hogar temporal, difusión, veterinaria..."></textarea></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px"><button class="btn" type="submit">Postular</button><span id="status" aria-live="polite" class="muted"></span></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta">
+    <div class="container">
+      <div class="callout">
+        <div>
+          <h2 style="margin:.2rem 0 .4rem">Cada aporte cuenta 🐕‍🦺</h2>
+          <p class="muted" style="margin:0">Con tu ayuda financiamos rescates, cirugías, alimento y adopciones responsables.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+          <a class="btn" href="#donar">Donar</a>
+          <a class="btn btn-outline" href="#adopta">Adoptar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+      <div>© <span id="y"></span> Salva un Galgo · Fundación sin fines de lucro</div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="pill" href="#home">Volver arriba ↑</a>
+        <a class="pill" href="#" id="privacy">Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const form = document.getElementById('formVol');
+    const status = document.getElementById('status');
+    form?.addEventListener('submit', (e)=>{e.preventDefault(); status.textContent='¡Gracias! Te contactaremos pronto por email.'; form.reset();});
+    document.getElementById('privacy').addEventListener('click',(e)=>{e.preventDefault(); alert('Tus datos se usan sólo para contactarte por voluntariado/adopción. Solicita su eliminación en contacto@salvaungalgo.cl');});
+  </script>
+</body>
+</html>
